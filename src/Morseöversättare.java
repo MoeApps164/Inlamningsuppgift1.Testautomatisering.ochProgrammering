@@ -8,6 +8,21 @@ public class Morseöversättare {
 
     public Morseöversättare() {
 
+        engTillMorse.put("A", ".-");
+        morseTillEng.put(".-", "A");
+
+        engTillMorse.put("B", "-...");
+        morseTillEng.put("-...", "B");
+
+        engTillMorse.put("C", "-.-.");
+        morseTillEng.put("-.-.", "C");
+
+        engTillMorse.put("D", "-..");
+        morseTillEng.put("-..", "D");
+
+        engTillMorse.put("E", ".");
+        morseTillEng.put(".", "E");
+
     }
 
     public String engelskatillMorse(String text) {
