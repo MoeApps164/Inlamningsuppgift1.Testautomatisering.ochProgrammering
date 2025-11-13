@@ -53,6 +53,39 @@ public class Morseöversättare {
         engTillMorse.put("O", "---");
         morseTillEng.put("---", "O");
 
+        engTillMorse.put("P", ".--.");
+        morseTillEng.put(".--.", "P");
+
+        engTillMorse.put("Q", "--.-");
+        morseTillEng.put("--.-", "Q");
+
+        engTillMorse.put("R", ".-.");
+        morseTillEng.put(".-.", "R");
+
+        engTillMorse.put("S", "...");
+        morseTillEng.put("...", "S");
+
+        engTillMorse.put("T", "-");
+        morseTillEng.put("-", "T");
+
+        engTillMorse.put("U", "..-");
+        morseTillEng.put("..-", "U");
+
+        engTillMorse.put("V", "...-");
+        morseTillEng.put("...-", "V");
+
+        engTillMorse.put("W", ".--");
+        morseTillEng.put(".--", "W");
+
+        engTillMorse.put("X", "-..-");
+        morseTillEng.put("-..-", "X");
+
+        engTillMorse.put("Y", "-.--");
+        morseTillEng.put("-.--", "Y");
+
+        engTillMorse.put("Z", "--..");
+        morseTillEng.put("--..", "Z");
+
     }
 
     public String engelskatillMorse(String text) {
