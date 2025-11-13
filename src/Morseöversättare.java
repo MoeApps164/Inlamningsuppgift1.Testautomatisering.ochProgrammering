@@ -116,6 +116,26 @@ public class Morseöversättare {
 
     public String morstillEngelska(String morseKod) {
 
-        return null;
+        StringBuilder resultatText = new StringBuilder();
+
+
+        String[] morseBitar = morseKod.split(" ");
+
+
+        for (String bit : morseBitar) {
+
+
+            String bokstav = morseTillEng.get(bit);
+
+
+            if (bokstav == null) {
+                return "Fel: morsekoden '" + bit + "' finns inte i tabellen.";
+            }
+
+
+            resultatText.append(bokstav);
+        }
+
+        return resultatText.toString();
     }
 }
