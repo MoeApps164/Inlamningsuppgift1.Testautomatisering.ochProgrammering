@@ -89,8 +89,29 @@ public class Morseöversättare {
     }
 
     public String engelskatillMorse(String text) {
+        StringBuilder resultatText = new StringBuilder();
 
-        return null;
+
+        for (int i = 0; i < text.length(); i++) {
+            char bokstav = text.charAt(i);
+
+
+            String bokstavSomText = String.valueOf(bokstav).toUpperCase();
+
+
+            String morsekod = engTillMorse.get(bokstavSomText);
+
+
+            if (morsekod == null) {
+                return "Fel: tecknet '" + bokstav + "' finns inte i morsekoden.";
+            }
+
+
+            resultatText.append(morsekod).append(" ");
+        }
+
+        return resultatText.toString().trim();
+
     }
 
     public String morstillEngelska(String morseKod) {
