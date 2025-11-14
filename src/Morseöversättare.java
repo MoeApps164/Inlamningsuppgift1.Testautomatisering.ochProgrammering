@@ -89,6 +89,12 @@ public class Morseöversättare {
     }
 
     public String engelskatillMorse(String text) {
+
+        try {
+            if (text == null || text.isEmpty()) {
+                return "Fel: ingen text att översätta.";
+            }
+
         StringBuilder resultatText = new StringBuilder();
 
 
@@ -112,11 +118,22 @@ public class Morseöversättare {
 
         return resultatText.toString().trim();
 
+        } catch (Exception e) {
+            return "Ett oväntat fel inträffade vid översättning till morse.";
+
+        }
+
     }
 
     public String morstillEngelska(String morseKod) {
 
-        StringBuilder resultatText = new StringBuilder();
+        try {
+            if (morseKod == null || morseKod.isEmpty()) {
+                return "Fel: ingen morsekod att översätta.";
+            }
+
+
+            StringBuilder resultatText = new StringBuilder();
 
 
         String[] morseBitar = morseKod.split(" ");
@@ -137,5 +154,9 @@ public class Morseöversättare {
         }
 
         return resultatText.toString();
+
+        } catch (Exception e) {
+            return "Ett oväntat fel inträffade vid översättning till engelska.";
+        }
     }
 }
