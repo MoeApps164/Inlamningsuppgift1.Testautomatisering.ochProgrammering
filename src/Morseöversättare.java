@@ -101,6 +101,10 @@ public class Morseöversättare {
         for (int i = 0; i < text.length(); i++) {
             char bokstav = text.charAt(i);
 
+            if (bokstav == ' ') {
+                continue;
+            }
+
 
             String bokstavSomText = String.valueOf(bokstav).toUpperCase();
 
@@ -132,28 +136,41 @@ public class Morseöversättare {
                 return "Fel: ingen morsekod att översätta.";
             }
 
-
             StringBuilder resultatText = new StringBuilder();
 
+            String[] morseBitar = morseKod.split(" ");
 
-        String[] morseBitar = morseKod.split(" ");
+            boolean nyttOrdTillagt = false;
 
-
-        for (String bit : morseBitar) {
-
-
-            String bokstav = morseTillEng.get(bit);
+            for (String bit : morseBitar) {
 
 
-            if (bokstav == null) {
-                return "Fel: morsekoden '" + bit + "' finns inte i tabellen.";
+                if (bit.trim().isEmpty()) {
+                    continue;
+                }
+
+
+                if (bit.equals("/")) {
+                    if (!nyttOrdTillagt) {
+                        resultatText.append(" ");
+                        nyttOrdTillagt = true;
+                    }
+                    continue;
+                }
+
+
+                nyttOrdTillagt = false;
+
+                String bokstav = morseTillEng.get(bit);
+
+                if (bokstav == null) {
+                    return "Fel: morsekoden '" + bit + "' finns inte i tabellen.";
+                }
+
+                resultatText.append(bokstav);
             }
 
-
-            resultatText.append(bokstav);
-        }
-
-        return resultatText.toString();
+            return resultatText.toString();
 
         } catch (Exception e) {
             return "Ett oväntat fel inträffade vid översättning till engelska.";
