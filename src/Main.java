@@ -1,13 +1,40 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+void main() {
+    Scanner tangentbord = new Scanner(System.in);
+    Morseöversättare översättare = new Morseöversättare();
+
+    while (true) {
+        System.out.println(" Morseprogram ");
+        System.out.println("1. Engelska till morse");
+        System.out.println("2. Morse till engelska");
+        System.out.println("3. Avsluta");
+        System.out.print("Välj ett alternativ: ");
+
+        String val = tangentbord.nextLine();
+
+        if (val.equals("1")) {
+            System.out.print("Skriv in text att översätta: ");
+            String text = tangentbord.nextLine();
+
+            String resultat = översättare.engelskatillMorse(text);
+            System.out.println("Morsekod: " + resultat);
+
+        } else if (val.equals("2")) {
+            System.out.print("Skriv in morsekod att översätta: ");
+            String morsekod = tangentbord.nextLine();
+
+            String resultat = översättare.morstillEngelska(morsekod);
+            System.out.println("Engelsk text: " + resultat);
+
+        } else if (val.equals("3")) {
+            System.out.println("Avslutar programmet...");
+            break;
+
+        } else {
+            System.out.println("Fel: Ogiltigt val, försök igen!");
+        }
     }
 }
+
+
